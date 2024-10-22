@@ -1,8 +1,10 @@
-# Use Nginx as the base image
 FROM nginx:alpine
 
-# Copy HTML files to the Nginx web directory
+# Install Node.js and npm
+RUN apk add --no-cache nodejs npm
+
+# Copy your application files
 COPY . /usr/share/nginx/html
 
-# Expose port 80
+# Expose the port
 EXPOSE 80
