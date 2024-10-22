@@ -1,14 +1,7 @@
 FROM nginx:alpine
 
-# Install Node.js and npm
-RUN apk add --no-cache nodejs npm
-
-# Copy package.json and install dependencies
-COPY package*.json ./
-RUN npm install
-
-# Copy application files
+# Copy HTML files into the Nginx server directory
 COPY . /usr/share/nginx/html
 
-# Expose the port
+# Expose port 80
 EXPOSE 80
